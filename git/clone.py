@@ -3,6 +3,7 @@ import os
 import shutil
 
 
+# noinspection PyInterpreter
 class Clone(object):
     """Git clone related"""
 
@@ -30,8 +31,8 @@ class Clone(object):
         if not self.clone(repo_path, path):
             return
 
-        self.remove_git_dir(path)
-        print(f'cd {path}')
+        os.system(f'cd {path}')
+        os.system(f'git remote rename origin parent')
 
 
 if __name__ == '__main__':
